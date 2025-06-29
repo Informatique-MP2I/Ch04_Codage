@@ -1,0 +1,15 @@
+# Compiler and linker configuration
+CC := gcc
+CFLAGS := -std=c18 -Wall
+LN := gcc
+# Default target
+all: example
+# Compile step
+example.o: example.c
+	$(CC) $(CFLAGS) -c example.c -o example.o
+# Link step
+example: example.o
+	$(LN) example.o -o example
+# Clean up the build
+clean:
+	rm -f example.o example
